@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Bret Michael Dumaraos — Lead DevSecOps Developer and Systems Administrator. Explore digital platforms, cybersecurity expertise, and selected CAAP projects.">
-<meta name="theme-color" content="#191d18"><script>try{const t=localStorage.getItem("bret-theme");document.documentElement.dataset.theme=(t==="light"?"light":"dark")}catch{document.documentElement.dataset.theme="dark"}</script><meta property="og:title" content="Bret Michael Dumaraos | Development. Security. Systems."><meta property="og:description" content="Thoughtful digital experiences. Secure foundations. Explore my work and get in touch."><meta property="og:type" content="website">
+<meta name="theme-color" content="#191d18"><script>const defaultTheme=()=>matchMedia("(max-width: 580px)").matches?"dark":"light";try{const t=localStorage.getItem("bret-theme");document.documentElement.dataset.theme=(t==="light"||t==="dark")?t:defaultTheme()}catch{document.documentElement.dataset.theme=defaultTheme()}</script><meta property="og:title" content="Bret Michael Dumaraos | Development. Security. Systems."><meta property="og:description" content="Thoughtful digital experiences. Secure foundations. Explore my work and get in touch."><meta property="og:type" content="website">
 <title>Bret Michael Dumaraos — Developer & Systems Administrator</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script><script src="assets/vendor/alpine-3.14.9.min.js" defer></script>
 </head>

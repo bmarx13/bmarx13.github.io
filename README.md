@@ -31,7 +31,7 @@ With XAMPP Apache running, open `http://localhost/bret.dumaraos/`. You can also 
 
 ## Added portfolio features
 
-- Dark mode is the default and remembers the visitor's explicit selection.
+- Phones (up to 580px wide) default to dark mode; PCs and tablets default to light mode. An explicit visitor choice is remembered.
 - Project dialogs include purpose, workflow, and original screenshots.
 - The independent-work section currently features this portfolio.
 - The résumé PDF is in `assets/bret-dumaraos-resume.pdf`.

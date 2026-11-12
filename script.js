@@ -140,10 +140,11 @@ marqueeToggle.addEventListener('click', () => {
   marqueeToggle.textContent = paused ? 'Play ↔' : 'Pause ↔';
 });
 
-// Start in dark mode; remember an explicit visitor choice.
+// Phones default to dark; desktops and tablets default to light. Remember explicit choices.
 const themeToggle=document.querySelector('#theme-toggle');
 function syncThemeButton(){const dark=document.documentElement.dataset.theme==='dark';themeToggle.setAttribute('aria-pressed',String(dark));themeToggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');themeToggle.querySelector('.theme-label').textContent=dark?'Light mode':'Dark mode';document.querySelector('meta[name="theme-color"]').content=dark?'#191d18':'#f3f1eb';}
 syncThemeButton();
+matchMedia('(max-width: 580px)').addEventListener('change',()=>{let saved;try{saved=localStorage.getItem('bret-theme');}catch{}if(saved!=='light'&&saved!=='dark'){document.documentElement.dataset.theme=defaultTheme();syncThemeButton();}});
 themeToggle.addEventListener('click',()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('bret-theme',document.documentElement.dataset.theme);}catch{}syncThemeButton();});
 
 
