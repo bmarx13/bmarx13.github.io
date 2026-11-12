@@ -1,0 +1,5 @@
+# Local previews and generated archives
+tmp/
+*.zip
+# Local verification helper uses installed tools
+verify-site.cjs
