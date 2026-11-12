@@ -93,7 +93,7 @@ document.querySelector('#close-dialog').addEventListener('click',()=>dialog.clos
 dialog.addEventListener('click',event=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();}});
 if('IntersectionObserver' in window){document.documentElement.classList.add('js-ready');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));}
 document.querySelector('#year').textContent=new Date().getFullYear();
-document.querySelector('#copy-email').addEventListener('click',async()=>{const status=document.querySelector('#copy-status');try{await navigator.clipboard.writeText('bret.dumaraos@caap.gov.ph');status.textContent='Email copied. Let’s connect.';}catch{status.textContent='Copy this address: bret.dumaraos@caap.gov.ph';}});
+document.querySelectorAll('[data-copy-email]').forEach(button=>button.addEventListener('click',async()=>{const status=document.getElementById(button.dataset.copyEmail);try{await navigator.clipboard.writeText('bret.dumaraos@caap.gov.ph');status.textContent='Email copied. Let’s connect.';}catch{status.textContent='Copy this address: bret.dumaraos@caap.gov.ph';}}));
 const art=document.querySelector('.orbit-art');
 if(matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches){art.addEventListener('pointermove',event=>{const rect=art.getBoundingClientRect();art.style.transform=`perspective(700px) rotateY(${(event.clientX-rect.left-rect.width/2)/35}deg) rotateX(${-(event.clientY-rect.top-rect.height/2)/35}deg)`;});art.addEventListener('pointerleave',()=>{art.style.transform='none';});}
 
@@ -140,12 +140,12 @@ marqueeToggle.addEventListener('click', () => {
   marqueeToggle.textContent = paused ? 'Play ↔' : 'Pause ↔';
 });
 
-// Theme choice persists locally; follow the system until a visitor chooses.
+// Start in dark mode; remember an explicit visitor choice.
 const themeToggle=document.querySelector('#theme-toggle');
 function syncThemeButton(){const dark=document.documentElement.dataset.theme==='dark';themeToggle.setAttribute('aria-pressed',String(dark));themeToggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');themeToggle.querySelector('.theme-label').textContent=dark?'Light mode':'Dark mode';document.querySelector('meta[name="theme-color"]').content=dark?'#191d18':'#f3f1eb';}
 syncThemeButton();
 themeToggle.addEventListener('click',()=>{document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('bret-theme',document.documentElement.dataset.theme);}catch{}syncThemeButton();});
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change',event=>{let saved;try{saved=localStorage.getItem('bret-theme');}catch{}if(!saved){document.documentElement.dataset.theme=event.matches?'dark':'light';syncThemeButton();}});
+
 
 // Add supplied portrait/certificate files here; absent assets produce no broken images.
 const profileAssets={portrait:null,portraitAlt:'Bret Michael Dumaraos'};
