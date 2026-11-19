@@ -2,8 +2,9 @@ BEGIN:VCARD
 VERSION:3.0
 N:Dumaraos;Bret Michael;;;
 FN:Bret Michael Dumaraos
+TITLE:Information Technology Officer I
 ORG:Civil Aviation Authority of the Philippines
-TITLE:Information Technology I
-EMAIL;TYPE=WORK:bret.dumaraos@caap.gov.ph
-NOTE:Lead DevSecOps Developer and Systems Administrator
+EMAIL;TYPE=INTERNET:bret.dumaraos@caap.gov.ph
+TEL;TYPE=CELL:+63 908 103 1144
+URL:https://www.caap.gov.ph/
 END:VCARD
