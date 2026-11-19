@@ -37,3 +37,5 @@ With XAMPP Apache running, open `http://localhost/bret.dumaraos/`. You can also 
 - The résumé PDF is in `assets/bret-dumaraos-resume.pdf`.
 - Credential details include supplied organization/training-provider names. Add certificate image paths and verification URLs in the `credentialEvidence` array in `script.js`.
 - Add a portrait path to `profileAssets.portrait` in `script.js` when available. No portrait or certificate image is displayed until a file is supplied.
+
+Save contact opens the vCard using normal browser navigation, without forcing a download. Supported mobile browsers can hand the card to Contacts; some browsers still download the file before import. Contact saving requires the visitor's confirmation.
